@@ -1,0 +1,43 @@
+﻿@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@ViewData["Title"]">
+    <meta name="author" content="Wakeboard UK - Jeremy Nevill">
+    <link rel="icon" href="favicon.ico">
+    <title>@ViewData["Title"] - Wakeboard UK</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
+    <environment names="Development">
+        <!-- Dev Only -->
+    </environment>
+    <environment names="Production">
+        <!-- Staging and Production Only -->
+        <!-- Segment JS -->
+        <script type="text/javascript">
+            !function () {
+                var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
+                    analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on"]; analytics.factory = function (t) { return function () { var e = Array.prototype.slice.call(arguments); e.unshift(t); analytics.push(e); return analytics } }; for (var t = 0; t < analytics.methods.length; t++) { var e = analytics.methods[t]; analytics[e] = analytics.factory(e) } analytics.load = function (t) { var e = document.createElement("script"); e.type = "text/javascript"; e.async = !0; e.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.segment.com/analytics.js/v1/" + t + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(e, n) }; analytics.SNIPPET_VERSION = "4.0.0";
+                    analytics.load("HZWozZfnevo1QKss6jntkLIbUGXr1fD1");
+                    analytics.page();
+                }
+            }();
+        </script>
+    </environment>
+</head>
+<body>
+
+    @await Html.PartialAsync("_HeaderPartial")
+
+    @RenderBody()
+
+    @await Html.PartialAsync("_FooterPartial")
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

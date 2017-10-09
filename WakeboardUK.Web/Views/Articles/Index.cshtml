@@ -1,0 +1,84 @@
+@model IEnumerable<WakeboardUK.Web.Models.Article>
+@{
+    ViewData["Title"] = "News";
+}
+
+<!-- Start Main Content -->
+<main class="main-content">
+    <div class="container body-content">
+
+        <div class="row">
+            <div class="col-sm-9 main-column archive-page">
+
+                <div class="grid grid-col-2">
+                    <div class="grid-sizer"></div>
+                    <div class="gutter-sizer"></div>
+
+                    @foreach (var item in Model)
+                    {
+                    <!-- Start Post -->
+                        <article class="grid-item">
+                            <div class="post-title">
+                                <a asp-action="Details" asp-route-id="@item.ArticleId" title="@item.Title"><h2>@Html.DisplayFor(modelItem => item.Title)</h2></a>
+                                <div class="post-meta">
+                                    <em class="date">@Html.DisplayFor(modelItem => item.CreateDate)</em>
+                                </div>
+                            </div>
+                            <div class="post-image hover-box-container hb-effect-fade">
+                                <a href="post-standard.html" class="hover-box" title="Insert Your Titles">
+                                    <a asp-action="Details" asp-route-id="@item.ArticleId" title="@item.Title" class="hover-box">
+
+                                        <img src="http://d21hw29p9qzuua.cloudfront.net/articles/photos/@item.ArticleId/original/@item.ImageUrl" alt="alt" />
+                                        <div class="hover-box-content-container">
+                                            <div class="hover-box-content">
+                                                <em class="fa fa-link"></em>
+                                            </div>
+                                        </div>
+                                    </a>
+                            </div>
+                            <div class="post-excerpt">
+                                <p>
+                                    <a asp-action="Details" asp-route-id="@item.ArticleId" class="read-more" title="@item.Title">Read More</a>
+                                </p>
+                            </div>
+                        </article>
+                    }
+
+                    <!-- Start Post -->
+                    <article class="grid-item">
+                        <div class="post-title">
+                            <a href="post-standard.html" title="post title"><h2>Training Camps</h2></a>
+                            <div class="post-meta">
+                                <em class="date">17 March</em>
+                                <em class="author"><a href="archive-list.html">DesignLots</a></em>
+                                <em class="category"><a href="archive-list.html">Games</a><a href="archive-list.html">Club News</a></em>
+                                <em class="comments"><a href="#">5</a></em>
+                            </div>
+                        </div>
+                        <div class="post-image hover-box-container hb-effect-fade">
+                            <a href="post-standard.html" class="hover-box" title="Insert Your Titles">
+                                <img src="http://placehold.it/900x600" alt="alt" />
+                                <div class="hover-box-content-container">
+                                    <div class="hover-box-content">
+                                        <em class="fa fa-link"></em>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="post-excerpt">
+                            <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quame ornare sem lacinia quam venenatis vestibulum... <a class="read-more" href="post-standard.html">Read More</a></p>
+                        </div>
+                    </article>
+
+                </div><!-- /.grid -->
+                <hr />
+
+            </div><!--/.main-column -->
+
+            <aside class="sidebar col-sm-3 sticky">
+                
+
+            </aside>
+
+        </div><!-- /.container -->
+</main><!-- /.main-content -->

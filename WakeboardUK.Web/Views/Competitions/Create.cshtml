@@ -1,0 +1,161 @@
+@model WakeboardUK.Web.Models.Competition
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Competition</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Title" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="start_date" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="start_date" class="form-control" />
+                <span asp-validation-for="start_date" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="end_date" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="end_date" class="form-control" />
+                <span asp-validation-for="end_date" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="short_name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="short_name" class="form-control" />
+                <span asp-validation-for="short_name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="location_id" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="location_id" class="form-control" />
+                <span asp-validation-for="location_id" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="created_at" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="created_at" class="form-control" />
+                <span asp-validation-for="created_at" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="updated_at" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="updated_at" class="form-control" />
+                <span asp-validation-for="updated_at" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="country_id" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="country_id" class="form-control" />
+                <span asp-validation-for="country_id" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="photo_file_name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="photo_file_name" class="form-control" />
+                <span asp-validation-for="photo_file_name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="photo_content_type" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="photo_content_type" class="form-control" />
+                <span asp-validation-for="photo_content_type" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="photo_file_size" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="photo_file_size" class="form-control" />
+                <span asp-validation-for="photo_file_size" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="location" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="location" class="form-control" />
+                <span asp-validation-for="location" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="entry" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="entry" class="form-control" />
+                <span asp-validation-for="entry" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="sponsors" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="sponsors" class="form-control" />
+                <span asp-validation-for="sponsors" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="schedule" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="schedule" class="form-control" />
+                <span asp-validation-for="schedule" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="notes" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="notes" class="form-control" />
+                <span asp-validation-for="notes" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="official_url" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="official_url" class="form-control" />
+                <span asp-validation-for="official_url" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="accommodation" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="accommodation" class="form-control" />
+                <span asp-validation-for="accommodation" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
