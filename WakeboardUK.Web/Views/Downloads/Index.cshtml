@@ -1,41 +1,23 @@
 @model IEnumerable<WakeboardUK.Web.Models.Download>
-
-@{
-    ViewData["Title"] = "Downloads";
-}
-<!-- Start Main Content -->
-<main class="main-content">
-    <div class="container body-content">
-        <div class="row">
-            <div class="col-sm-9 main-column fixtures-page">
-
-                <div class="page-header">
-                    <h2>Downloads</h2>
-                    <p class="lead">
-                        Official Wakeboard UK Downloads including rules, results and selection policies etc.
-                    </p>
-                </div>
-                <!-- Downloads -->
-                <table class="table-striped table-responsive table-hover table-leaderboard table-tops">
-                    <thead>
-                        <tr>
-                            <th>Download</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    <a href="@Html.DisplayFor(modelItem => item.Url)">@Html.DisplayFor(modelItem => item.Name)</a>
-                                </td>
-                            </tr>
-                        }
-
-                    </tbody>
-                </table>
-
-            </div><!--/.main-column -->
-            <aside class="sidebar col-sm-3 sticky"></aside>
-        </div><!-- /.container -->
-</main><!-- /.main-content -->
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Downloads
+            </h1><p class="lead">
+                Official Wakeboard UK Downloads including rules, results and selection policies etc.
+            </p>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <h2>Downloads</h2>
+        @foreach (var item in Model)
+        {
+            <p>
+                <a href="@Html.DisplayFor(modelItem => item.Url)">@Html.DisplayFor(modelItem => item.Name)</a>
+            </p>
+        }
+    </div>
+</section>
