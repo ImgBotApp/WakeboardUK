@@ -2,59 +2,37 @@
 @{
     ViewData["Title"] = @Html.DisplayFor(model => model.Title);
 }
-
-<section class="section">
-    <div class="container">
-        <h1 class="title">@Html.DisplayFor(model => model.Title)</h1>
-        <p class="subtitle">
-            UK Boat Wakeboarding
-        </p>
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                @Html.DisplayFor(model => model.Title)
+            </h1>
+        </div>
     </div>
 </section>
-
-
-<!-- Start Main Content -->
-<main class="main-content">
-    <div class="container body-content">
-        <div class="row">
-            <div class="col-sm-9 main-column">
-                <!-- Start Meta -->
-                <div class="post-title">
-                    
-                    <div class="post-meta">
-                        <em class="date">@Html.DisplayFor(model => model.CreateDate)</em>
-                    </div>
-                </div>
-
-                <!-- Start Feature Image -->
-                <div class="hover-box-container hb-effect-fade">
-                    <a href="http://cdn.wakeboard.co.uk/articles/photos/@Html.DisplayFor(model => model.ArticleId)/original/@Html.DisplayFor(model => model.ImageUrl)"
-                        class="fancybox hover-box" data-fancybox-group="gallery1" title="@Html.DisplayFor(model => model.Title)">
-                        <img alt="@Html.DisplayFor(model => model.Title)"
-                             src="http://cdn.wakeboard.co.uk/articles/photos/@Html.DisplayFor(model => model.ArticleId)/original/@Html.DisplayFor(model => model.ImageUrl)" />
-                        <div class="hover-box-content-container">
-                            <div class="hover-box-content">
-                                <em class="fa fa-search"></em>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="caption-text">This is a caption.</div>
-                </div>
-                <br />
-
-                <!-- Start Content -->
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-one-half">
+                <a href="http://cdn.wakeboard.co.uk/articles/photos/@Html.DisplayFor(model => model.ArticleId)/original/@Html.DisplayFor(model => model.ImageUrl)"
+                   class="fancybox hover-box" data-fancybox-group="gallery1" title="@Html.DisplayFor(model => model.Title)">
+                    <img alt="@Html.DisplayFor(model => model.Title)"
+                         src="http://cdn.wakeboard.co.uk/articles/photos/@Html.DisplayFor(model => model.ArticleId)/original/@Html.DisplayFor(model => model.ImageUrl)" />
+                </a>
+            </div>
+            <div class="column">
                 <p class="lead">@Html.Raw(Model.Description)</p>
+                <em class="date">@Html.DisplayFor(model => model.CreateDate)</em>
+                <hr />
                 <p>@Html.Raw(Model.Content)</p>
-
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <p><a asp-action="Edit" asp-route-id="@Model.ArticleId">Edit</a></p>
-                }
+            </div>
         </div>
-
-            <aside class="sidebar col-sm-3 sticky">
-                
-
-            </aside>
-        </div><!-- /.container -->
-</main><!-- /.main-content -->
+        @if (User.Identity.IsAuthenticated)
+        {
+            <p>
+                <a asp-action="Edit" asp-route-id="@Model.ArticleId">Edit</a>
+            </p>
+        }
+    </div>
+</section>
