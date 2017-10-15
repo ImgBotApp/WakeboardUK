@@ -22,10 +22,10 @@
                 </a>
             </div>
             <div class="column">
-                <p class="lead">@Html.Raw(Model.Description)</p>
+                <p class="is-medium">@Html.Raw(Model.Description)</p>
                 <em class="date">@Html.DisplayFor(model => model.CreateDate)</em>
                 <hr />
-                <p>@Html.Raw(Model.Content)</p>
+                <p calss="is-small">@Html.Raw(Model.Content)</p>
             </div>
         </div>
         @if (User.Identity.IsAuthenticated)
