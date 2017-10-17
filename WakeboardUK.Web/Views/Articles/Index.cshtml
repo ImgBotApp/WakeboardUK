@@ -25,13 +25,11 @@
                     <a asp-action="Details" asp-route-id="@item.ArticleId" title="@item.Title">
                         <h2 class="title is-4">@Html.DisplayFor(modelItem => item.Title)</h2>
                     </a>
-                    <p> <em class="date">Release Date: @Html.DisplayFor(modelItem => item.CreateDate)</em></p>
-                    <p>
+                    <div class="content">
+                        <p><em class="date">Release Date: @Html.DisplayFor(modelItem => item.CreateDate)</em></p>
                         @Html.DisplayFor(modelItem => item.Description)
-                    </p>
-                    <p>
-                        <a asp-action="Details" asp-route-id="@item.ArticleId" class="read-more" title="@item.Title">Read More</a>
-                    </p>
+                        <p><a asp-action="Details" asp-route-id="@item.ArticleId" class="read-more" title="@item.Title">Read More</a></p>
+                    </div>
                 </div>
             </div>
             <hr />

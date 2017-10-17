@@ -22,17 +22,21 @@
                 </a>
             </div>
             <div class="column">
-                <p class="is-medium">@Html.Raw(Model.Description)</p>
-                <em class="date">@Html.DisplayFor(model => model.CreateDate)</em>
-                <hr />
-                <p calss="is-small">@Html.Raw(Model.Content)</p>
+                <div class="subtitle is-4">
+                    @Html.Raw(Model.Description)
+                </div>
+                <div class="content">
+                    <em class="date">@Html.DisplayFor(model => model.CreateDate)</em>
+                    <hr />
+                    @Html.Raw(Model.Content)
+                </div>
             </div>
         </div>
-        @if (User.Identity.IsAuthenticated)
-        {
-            <p>
-                <a asp-action="Edit" asp-route-id="@Model.ArticleId">Edit</a>
-            </p>
-        }
     </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p>
+            <a asp-action="Edit" asp-route-id="@Model.ArticleId">Edit</a>
+        </p>
+    }
 </section>
