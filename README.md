@@ -5,7 +5,7 @@ of [BWSW](http://www.britishwaterski.org.uk).
 
 We work in association with the BWSW to promote wakeboarding and push the sport forward.
 
-This repo contains the .net core source code for the [Wakeboard UK Website](http://www.wakeboard.co.uk).
+This repo contains the .net core source code for the 2018 [Wakeboard UK Website](http://www.wakeboard.co.uk).
 
 ### Tech Stack
 
