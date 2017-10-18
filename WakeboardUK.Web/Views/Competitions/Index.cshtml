@@ -4,255 +4,48 @@
 @{
     ViewData["Title"] = "Competitions";
 }
-<!-- Start Main Content -->
-<main class="main-content">
-    <div class="container body-content">
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Competitions
+            </h1>
+            <p class="lead">
+                Officially sanctioned Wakeboard UK competitions and non-sanctioned events in the UK
+                and Europe.
+            </p>
+        </div>
+    </div>
+</section>
 
-        <div class="row">
-            <div class="col-sm-9 main-column events-page">
-
-                <div class="page-header">
-                    <h2>Competitions</h2>
-                    <p class="lead">Officially sanctioned Wakeboard UK competitions and non-sanctioned events in the UK 
-                    and Europe.</p>
-                  
-                </div>
-
-                <!-- Start Events Filter  
-                <div class="events-filter">
-                    <ul class="list-inline">
-                        <li><strong>View As: </strong></li>
-                        <li><a class="meta-text" href="events-calendar.html"><em class="fa fa-calendar"></em> Calendar</a> &nbsp;</li>
-                        <li><a class="feat-color" href="events.html"><em class="fa fa-list"></em> List View</a> &nbsp;</li>
-                        <li><a class="meta-text" href="event-timetable.html"><em class="fa fa-table"></em> Timetable</a></li>
-                    </ul>
-                </div>
-                -->
-
-@foreach (var item in Model)
-{
-  
-
-                <!-- Start Post -->
-                <article class="row">
-                    <div class="col-sm-4">
-                        <div class="post-image hover-box-container hb-effect-fade post-title">
-                            <a asp-action="Details" asp-route-id="@item.CompetitionId" class="hover-box">
-                                <!--
-                                <img src="http://placehold.it/900x600" alt="alt" />
-                                -->
-                                    <img src="http://cdn.wakeboard.co.uk/competitions/photos/@Html.DisplayFor(modelItem => item.CompetitionId)/original/@Html.DisplayFor(modelItem => item.photo_file_name)"
-                                         alt="@Html.DisplayFor(modelItem => item.Title)" />
-                                    <div class="hover-box-content-container">
-                                        <div class="hover-box-content">
-                                            <em class="fa fa-link"></em>
-                                        </div>
-                                    </div>
-                                </a>
-                            <!--<div class="item-notice">Sanctioned</div>-->
-                        </div>
-                    </div>
-                    <div class="col-sm-8">
-                        <div class="post-title">
-                            <a asp-action="Details" asp-route-id="@item.CompetitionId">
-                                 <h2>@Html.DisplayFor(modelItem => item.Title) </h2></a>
-                                <div class="post-meta">
-                                    <em class="date">@Html.DisplayFor(modelItem => item.start_date)</em>
-                                    <!--
-                                        <em class="time">07:00 - 13:00</em>
-                                        <em class="location">Edihad Stadium</em>
-                                        <em class="cost">$18.00</em>
-                                    -->
-                                </div>
-                        </div>
-                        <div class="post-excerpt">
-                            <p>
-                                @Html.DisplayFor(modelItem => item.Description)
-                                <a asp-action="Details" asp-route-id="@item.CompetitionId" class="read-more">Read More</a>
-
-                                    @if (SignInManager.IsSignedIn(User))
-                                    {
-                                    <p>
-                                    <a asp-action="Edit" asp-route-id="@item.CompetitionId">Edit</a> |
-                                    <a asp-action = "Delete" asp-route-id = "@item.CompetitionId">Delete</a>
-                                    </p>
-                                    }
-
-                            </p>
-                        </div>
-                    </div>
-                </article>
-
-}
-
-                <!-- Rule Seperator 
-                <div class="hr-title-sep clearfix">
-                    <h4 class="hr-title meta-text">March</h4>
-                    <hr />
-                </div>
-                -->
-
-                <hr />
-
-                <!--
-                <ul class="pagination">
-                    <li class="disabled"><a href="#" aria-label="Previous"><i class="fa fa-chevron-left"></i></a></li>
-                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#" aria-label="Next"><i class="fa fa-chevron-right"></i></a></li>
-                </ul>
-                -->
-
-            </div><!--/.main-column -->
-
-            <aside class="sidebar col-sm-3 sticky">
-
-                <!-- 
-                    Start Widget 
-                                     <div class="widget widget-countdown">
-                    <h3>Next Game</h3>
-                    <div class="versus clearfix">
-                        <div>
-                            <div style="background-color: #f8ca40;"><img src="img/icon1.jpg" alt="icon" /></div>
-                            <strong>Seattle Bulls</strong>
-                        </div>
-                        <span class="vs">VS</span>
-                        <div>
-                            <div style="background-color: #11471b;"><img src="img/icon3.jpg" alt="icon" /></div>
-                            <strong>NY Eagles</strong>
-                        </div>
-                    </div>
-                    <div class="countdown countdown-4 clearfix" data-countdown="2019/01/01"></div>
-                    <div class="meta-text">
-                        <span><em class="fa feat-color fa-calendar"></em> 03/06/16</span>
-                        <span><em class="fa feat-color fa-map-marker"></em> <a href="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28369.415587766056!2d152.98820641500242!3d-27.276331333808365!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b93fb9c9442c901%3A0x10b5aa2f23d9e4e1!2sAshford+Circuit%2C+Petrie+QLD+4502!5e0!3m2!1sen!2sau!4v1406620130126" class="fancybox fancybox.iframe">Location</a> </span>
-                        <span><a class="read-more" href="event.html"> See Event</a></span>
-                    </div>
-                    <p>Nullam id dolue putid… <a class="read-more" href="event.html"> More</a></p>
-                </div>
-
-
-                 <div class="widget widget-calendar">
-                    <h3>Calender</h3>
-                    <table class="table-striped table-events">
-                        <thead>
-                            <tr>
-                                <th>M</th>
-                                <th>T</th>
-                                <th>W</th>
-                                <th>T</th>
-                                <th>F</th>
-                                <th>S</th>
-                                <th>S</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <td class="null-time"><div class="evt"></div></td>
-                                <td class="null-time"><div class="evt"></div></td>
-                                <td class="null-time"><div class="evt"></div></td>
-                                <td class="null-time"><div class="evt"></div></td>
-                                <td><div class="evt"><b>1</b></div></td>
-                                <td class="current-day"><div class="evt"><b>2</b></div></td>
-                                <td class="active-time">
-                                    <div class="evt">
-                                        <b>3</b>
-                                        <a href="event.html" title="event"><em class="ttip fa fa-circle" title="Melbourne VS Our Team"></em></a>
-                                </td>
-                            </tr>
-
-
-                            <tr>
-                                <td><div class="evt"><b>4</b></div></td>
-                                <td class="active-time">
-                                    <div class="evt">
-                                        <b>5</b>
-                                        <a href="event.html" title="event"><em class="ttip fa fa-circle" title="Sydney VS Our Team - Away Game "></em></a>
-                                </td>
-                                <td><div class="evt"><b>6</b></div></td>
-                                <td><div class="evt"><b>7</b></div></td>
-                                <td><div class="evt"><b>8</b></div></td>
-                                <td><div class="evt"><b>9</b></div></td>
-                                <td><div class="evt"><b>10</b></div></td>
-                            </tr>
-
-                            <tr>
-                                <td><div class="evt"><b>11</b></div></td>
-                                <td><div class="evt"><b>12</b></div></td>
-                                <td class="active-time">
-                                    <div class="evt">
-                                        <b>13</b>
-                                        <a href="event.html" title="event"><em class="ttip fa fa-circle" title="Melbourne VS Our Team"></em></a>
-                                </td>
-                                <td><div class="evt"><b>14</b></div></td>
-                                <td><div class="evt"><b>15</b></div></td>
-                                <td class="active-time">
-                                    <div class="evt">
-                                        <b>16</b>
-                                        <a href="event.html" title="event"><em class="ttip fa fa-circle" title="Quarter Finals - Tigers VS Our Team - Home Game"></em></a>
-                                </td>
-                                <td><div class="evt"><b>17</b></div></td>
-                            </tr>
-
-                            <tr>
-                                <td><div class="evt"><b>18</b></div></td>
-                                <td><div class="evt"><b>19</b></div></td>
-                                <td><div class="evt"><b>20</b></div></td>
-                                <td class="active-time">
-                                    <div class="evt">
-                                        <b>21</b>
-                                        <a href="event.html" title="event"><em class="ttip fa fa-circle" title="Sydney VS Our Team - Away Game "></em></a>
-                                </td>
-                                <td><div class="evt"><b>22</b></div></td>
-                                <td><div class="evt"><b>23</b></div></td>
-                                <td><div class="evt"><b>24</b></div></td>
-                            </tr>
-
-                            <tr>
-                                <td class="active-time">
-                                    <div class="evt">
-                                        <b>25</b>
-                                        <a href="event.html" title="event"><em class="ttip fa fa-circle" title="Melbourne VS Our Team"></em></a>
-                                </td>
-                                <td><div class="evt"><b>26</b></div></td>
-                                <td><div class="evt"><b>27</b></div></td>
-                                <td><div class="evt"><b>28</b></div></td>
-                                <td><div class="evt"><b>29</b></div></td>
-                                <td><div class="evt"><b>30</b></div></td>
-                                <td><div class="evt"><b>31</b></div></td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-
-                    -->
-
-                <!-- Widget -->
-                <div class="widget widget-single-post">
-                    <h3>Featured Event</h3>
-                    <a href="#">
-                        <div class="hover-box-container">
-                            <div class="hover-box">
-                                <em class="date">17 March</em>
-                                <img src="http://placehold.it/900x600" alt="Fill" />
-                            </div>
-                        </div>
-                        <h4>Nominated club of the year</h4>
-                        <p>Nullam id dolor id nibh ultr cies vehicula ut id elit natoque penbus et magnis ut id elit...</p>
-
+<section class="section">
+    <div class="container">
+     
+        @foreach (var item in Model)
+        {
+            <div class="columns is-one-third">
+                <div class="column">
+                    <a asp-action="Details" asp-route-id="@item.CompetitionId" class="hover-box">
+                        <img src="http://cdn.wakeboard.co.uk/competitions/photos/@Html.DisplayFor(modelItem => item.CompetitionId)/original/@Html.DisplayFor(modelItem => item.photo_file_name)"
+                             alt="@Html.DisplayFor(modelItem => item.Title)" />
                     </a>
                 </div>
-
-
-
-
-            </aside>
-
-        </div><!-- /.container -->
-</main><!-- /.main-content -->
- 
+                <div class="column is-two-thirds">
+                    <a asp-action="Details" asp-route-id="@item.CompetitionId">
+                        <h2 class="title is-4">@Html.DisplayFor(modelItem => item.Title) </h2>
+                    </a>
+                    <em class="date">@Html.DisplayFor(modelItem => item.start_date)</em>
+                    @Html.DisplayFor(modelItem => item.Description)
+                    <a asp-action="Details" asp-route-id="@item.CompetitionId" class="read-more">Read More</a>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <p>
+                            <a asp-action="Edit" asp-route-id="@item.CompetitionId">Edit</a> |
+                            <a asp-action="Delete" asp-route-id="@item.CompetitionId">Delete</a>
+                        </p>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</section>
