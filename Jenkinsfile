@@ -4,13 +4,13 @@ pipeline {
         label 'win'
     }
     parameters {
-        booleanParam(name: 'Restore', defaultValue: true, description: 'Dotnet Restore')
+        booleanParam(name: 'DotNetRestore', defaultValue: true, description: 'Dotnet Restore')
     }
     stages {
          stage('Restore') {
             steps {
                 script {
-                    if (env.Restore == true) {
+                    if ("${params.DotNetRestore}" == "true") {
                         script {
                                 bat """
 								dotnet restore WakeboardUK.Web.sln
