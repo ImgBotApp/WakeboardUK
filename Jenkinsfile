@@ -8,7 +8,6 @@ pipeline {
     }
     stages {
          stage('Restore') {
-            agent { label 'win' }
             steps {
                 script {
                     if (env.Restore == true) {
