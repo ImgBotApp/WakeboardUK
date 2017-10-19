@@ -23,8 +23,8 @@
      
         @foreach (var item in Model)
         {
-            <div class="columns is-one-third">
-                <div class="column">
+            <div class="columns">
+                <div class="column is-one-third">
                     <a asp-action="Details" asp-route-id="@item.CompetitionId" class="hover-box">
                         <img src="http://cdn.wakeboard.co.uk/competitions/photos/@Html.DisplayFor(modelItem => item.CompetitionId)/original/@Html.DisplayFor(modelItem => item.photo_file_name)"
                              alt="@Html.DisplayFor(modelItem => item.Title)" />
