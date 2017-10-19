@@ -12,11 +12,9 @@ pipeline {
                 script {
                     if (env.Restore == true) {
                         script {
-                            dir("/WakeboardUK.Web") {
                                 bat """
-								dotnet restore WakeboardUK.Web.csproj
+								dotnet restore WakeboardUK.Web.sln
 							    """
-                            }
                         }
                     } else {
                         echo "Skipped."
