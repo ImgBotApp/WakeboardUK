@@ -13,7 +13,7 @@ pipeline {
                     if ("${params.DotNetRestore}" == "true") {
                         script {
                                 bat """
-								dotnet restore WakeboardUK.Web.sln
+								dotnet restore WakeboardUK.sln
 							    """
                         }
                     } else {
