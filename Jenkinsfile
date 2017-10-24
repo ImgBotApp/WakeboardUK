@@ -6,6 +6,8 @@ pipeline {
     parameters {
         booleanParam(name: 'DotNetRestore', defaultValue: true, description: 'Dotnet Restore')
         booleanParam(name: 'DotNetBuild', defaultValue: true, description: 'Dotnet Build')
+        booleanParam(name: 'DotNetPublish', defaultValue: true, description: 'Dotnet Publish')
+
     }
     stages {
         stage('Restore') {
@@ -31,6 +33,23 @@ pipeline {
                         script {
                             bat """
 								dotnet build WakeboardUK.sln
+							    """
+                        }
+                    } else {
+                        echo "Skipped."
+                    }
+                }
+            }
+
+        }
+        stage('Publish') {
+            steps {
+                script {
+                    if ("${params.DotNetPublish}" == "true") {
+                        script {
+                            bat """
+                                cd WakeboardUK.Web
+								dotnet publish WakeboardUK.Web.csproj --output ../output
 							    """
                         }
                     } else {
