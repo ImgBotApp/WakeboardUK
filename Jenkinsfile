@@ -23,22 +23,6 @@ pipeline {
                 }
             }
 
-            stage('Build') {
-                steps {
-                    script {
-                        if ("${params.DotNetBuild}" == "true") {
-                            script {
-                                bat """
-                                dotnet build WakeboardUK.sln
-                                """
-                            }
-                        } else {
-                            echo "Skipped."
-                        }
-                    }
-                }
-            }
-            
         }
     }
 }
