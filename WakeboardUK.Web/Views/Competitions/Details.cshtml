@@ -4,135 +4,66 @@
 @{
     ViewData["Title"] = "Details";
 }
-<!-- Start Main Content -->
-<main class="main-content">
-    <div class="container body-content">
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                @Html.DisplayFor(model => model.Title)
+            </h1>
 
-        <div class="row">
-            <div class="col-sm-9 main-column">
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
 
-                <div class="page-header">
-                    <h2>@Html.DisplayFor(model => model.Title) 
-                    <!--<small class="vert-middle pull-right feat-color">$18.00</small>-->
-                    </h2>
-                   
-                    <p class="lead">
+
+        <div class="columns">
+            <div class="column is-one-half">
+
+                <a href="http://cdn.wakeboard.co.uk/competitions/photos/@Html.DisplayFor(model => model.CompetitionId)/original/@Html.DisplayFor(model => model.photo_file_name)"
+                   class="fancybox hover-box"
+                   title="@Html.DisplayFor(model => model.Title)">
+                    <img src="http://cdn.wakeboard.co.uk/competitions/photos/@Html.DisplayFor(model => model.CompetitionId)/original/@Html.DisplayFor(model => model.photo_file_name)"
+                         alt="alt" />
+                </a>
+
+            </div>
+            <div class="column is-one-half">
+                <div class="subtitle is-4">
                     @Html.DisplayFor(model => model.Description)
-                    </p>
-                   
-                 </div>
-
-                <div class="row">
-                    <div class="col-sm-4 col-sm-push-8 event-details">
-                        <h4>Event Details</h4>
-                        <dl>
-                            <dt>Start</dt>
-                            <dd>@Html.DisplayFor(model => model.start_date) </dd>
-                            <dt>End</dt>
-                            <dd>@Html.DisplayFor(model => model.end_date) </dd>
-                            <dt>Entry</dt>
-                            <dd>@Html.Raw(@Model.entry)</dd>
-                        </dl>
-
-                        <h4>Location</h4>
-                        <dl>
-                            <dt>Venue</dt>
-                            <dd>@Html.Raw(@Model.location)</dd>
-
-                            <!--
-                            <dt>URL</dt>
-                            <dd><a href="#">@Html.DisplayFor(model => model.official_url)</a></dd>
-                            -->
-
-                        </dl>
-
-                        <!--
-                        <div class="btn-group dropdown">
-                            <button type="button" class="btn btn-success"><em class="fa fa-paypal"></em> Buy Tickets Here</button>
-                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="caret"></span>
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Adults $18.00</a></li>
-                                <li><a href="#">Kids $12.00</a></li>
-                            </ul>
-                        </div>
-                        -->
-
-                    </div>
-
-                    <div class="col-sm-8 col-sm-pull-4">
-                        <h4>Event Details</h4>
-                        <div class="hover-box-container hb-effect-fade">
-                            <a href="http://cdn.wakeboard.co.uk/competitions/photos/@Html.DisplayFor(model => model.CompetitionId)/original/@Html.DisplayFor(model => model.photo_file_name)" 
-                               class="fancybox hover-box" 
-                               title="@Html.DisplayFor(model => model.Title)">
-                                <img src="http://cdn.wakeboard.co.uk/competitions/photos/@Html.DisplayFor(model => model.CompetitionId)/original/@Html.DisplayFor(model => model.photo_file_name)" 
-                                     alt="alt" />
-                                <div class="hover-box-content-container">
-                                    <div class="hover-box-content">
-                                        <em class="fa fa-search"></em>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="caption-text">Come support your team</div>
-                        </div>
-                        <h4>Notes</h4>
-                        <p>
-                            @Html.Raw(@Model.notes)
-                        </p>
-                        <h4>Accomodation</h4>
-                        <p>
-                            @Html.Raw(@Model.accommodation)
-                        </p>
-                        <p>
-                            <a asp-action="Edit" asp-route-id="@Model.CompetitionId">Edit</a> |
-                        </p>
-                   </div>
                 </div>
+                <h4>Event Details</h4>
+                <dl>
+                    <dt>Start</dt>
+                    <dd>@Html.DisplayFor(model => model.start_date) </dd>
+                    <dt>End</dt>
+                    <dd>@Html.DisplayFor(model => model.end_date) </dd>
+                    <dt>Entry</dt>
+                    <dd>@Html.Raw(@Model.entry)</dd>
+                </dl>
+                <h4>Location</h4>
+                <dl>
+                    <dt>Venue</dt>
+                    <dd>@Html.Raw(@Model.location)</dd>
+                </dl>
 
+                <h4>Event Details</h4>
+
+                <h4>Notes</h4>
+                <p>
+                    @Html.Raw(@Model.notes)
+                </p>
+                <h4>Accomodation</h4>
+                <p>
+                    @Html.Raw(@Model.accommodation)
+                </p>
+                <p>
+                    <a asp-action="Edit" asp-route-id="@Model.CompetitionId">Edit</a> |
+                </p>
                 <hr />
-                <!-- Start Pager 
-                <ul class="post-section pager">
-                    <li class="previous disabled"><a href="#"><span>No More Events</span> <h4>End of line</h4></a></li>
-                    <li class="next"><a href="#"><span>Next Event</span> <h4>Grand finals day</h4></a></li>
-                </ul>
-                    -->
 
-            </div><!--/.main-column -->
- 
-            <aside class="sidebar col-sm-3 sticky">
- 
-                <!-- Start Widget -->
-                <div class="widget widget-countdown">
-                    <!--                    
-                    <h3>2017 Nationals Countdown</h3>
-                    <div class="versus clearfix">
-                        <div>
-                            <div style="background-color: #f8ca40;"><img src="img/icon1.jpg" alt="icon" /></div>
-                            <strong>Seattle Bulls</strong>
-                        </div>
-                        <span class="vs">VS</span>
-                        <div>
-                            <div style="background-color: #11471b;"><img src="img/icon3.jpg" alt="icon" /></div>
-                            <strong>NY Eagles</strong>
-                        </div>
-                    </div>
-                    <div class="countdown countdown-4 clearfix" data-countdown="2017/12/20"></div>
-
-                    <div class="meta-text">
-                        <span><em class="fa feat-color fa-calendar"></em> 03/07/17</span>
-                        <span><em class="fa feat-color fa-map-marker"></em> <a href="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28369.415587766056!2d152.98820641500242!3d-27.276331333808365!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b93fb9c9442c901%3A0x10b5aa2f23d9e4e1!2sAshford+Circuit%2C+Petrie+QLD+4502!5e0!3m2!1sen!2sau!4v1406620130126" class="fancybox fancybox.iframe">Location</a> </span>
-                        <span><a class="read-more" href="event.html"> See Event</a></span>
-                    </div>
-                    -->
-            
-                </div>
-
-            </aside>
-
-        </div><!-- /.container -->
-</main><!-- /.main-content -->
-
-
+            </div>
+        </div>
+    </div>
+</section>
