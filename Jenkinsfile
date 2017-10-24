@@ -49,7 +49,7 @@ pipeline {
                         script {
                             bat """
                                 cd WakeboardUK.Web
-								dotnet publish WakeboardUK.Web.csproj --output ../output
+								dotnet publish WakeboardUK.Web.csproj --output ../output --configuration release
 							    """
                         }
                     } else {
