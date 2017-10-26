@@ -4,16 +4,15 @@ pipeline {
         label 'win'
     }
     parameters {
-        booleanParam(name: 'DotNetRestore', defaultValue: true, description: 'Dotnet Restore')
-        booleanParam(name: 'DotNetBuild', defaultValue: true, description: 'Dotnet Build')
-        booleanParam(name: 'DotNetPublish', defaultValue: true, description: 'Dotnet Publish')
-
+        booleanParam(name: 'Restore', defaultValue: true, description: 'Dotnet Restore')
+        booleanParam(name: 'Build', defaultValue: true, description: 'Dotnet Build')
+        booleanParam(name: 'Publish', defaultValue: true, description: 'Dotnet Publish')
     }
     stages {
         stage('Restore') {
             steps {
                 script {
-                    if ("${params.DotNetRestore}" == "true") {
+                    if ("${params.Restore}" == "true") {
                         script {
                             bat """
 								dotnet restore WakeboardUK.sln
@@ -24,12 +23,11 @@ pipeline {
                     }
                 }
             }
-
         }
         stage('Build') {
             steps {
                 script {
-                    if ("${params.DotNetBuild}" == "true") {
+                    if ("${params.Build}" == "true") {
                         script {
                             bat """
 								dotnet build WakeboardUK.sln
@@ -45,11 +43,11 @@ pipeline {
         stage('Publish') {
             steps {
                 script {
-                    if ("${params.DotNetPublish}" == "true") {
+                    if ("${params.Publish}" == "true") {
                         script {
                             bat """
                                 cd WakeboardUK.Web
-								dotnet publish WakeboardUK.Web.csproj --output ../output --configuration release
+								dotnet publish WakeboardUK.Web.csproj --framework netcoreapp1.1 -o ..\\Publish\\WakeboardUK.Web
 							    """
                         }
                     } else {
@@ -57,7 +55,6 @@ pipeline {
                     }
                 }
             }
-
         }
     }
 }
