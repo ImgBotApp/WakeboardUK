@@ -32,20 +32,16 @@ pipeline {
         }
 
         stage('Publish') {
+            when { expression { params.Publish == true } }
             steps {
                 script {
-                    if ("${params.Publish}" == "true") {
-                        script {
-                            bat """
-                                cd WakeboardUK.Web
-								dotnet publish WakeboardUK.Web.csproj --framework netcoreapp1.1 -o ..\\Publish\\WakeboardUK.Web
-							    """
-                        }
-                    } else {
-                        echo "Skipped."
-                    }
+                    bat """
+                        cd WakeboardUK.Web
+					    dotnet publish WakeboardUK.Web.csproj --framework netcoreapp1.1 -o ..\\Publish\\WakeboardUK.Web
+				        """
                 }
             }
         }
     }
 }
+
