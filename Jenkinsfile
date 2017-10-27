@@ -10,7 +10,7 @@ pipeline {
     }
     stages {
         stage('Restore') {
-            when { expression { params.Restore == true } }
+            when { expression { "${params.Restore}" == "true" } }
             steps {
                 script {
                     bat """
