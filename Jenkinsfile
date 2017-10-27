@@ -20,20 +20,16 @@ pipeline {
             }
         }
         stage('Build') {
+            when { expression { params.Build == true } }
             steps {
-                script {
-                    if ("${params.Build}" == "true") {
-                        script {
-                            bat """
+                if ("${params.Build}" == "true") {
+                    script {
+                        bat """
 								dotnet build WakeboardUK.sln
 							    """
-                        }
-                    } else {
-                        echo "Skipped."
                     }
                 }
             }
-
         }
         stage('Publish') {
             steps {
