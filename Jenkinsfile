@@ -14,23 +14,23 @@ pipeline {
             steps {
                 script {
                     bat """
-								dotnet restore WakeboardUK.sln
-							    """
+                        dotnet restore WakeboardUK.sln
+		                """
                 }
             }
         }
+
         stage('Build') {
             when { expression { params.Build == true } }
             steps {
-                if ("${params.Build}" == "true") {
-                    script {
-                        bat """
-								dotnet build WakeboardUK.sln
-							    """
-                    }
+                script {
+                    bat """
+                        dotnet build WakeboardUK.sln
+					    """
                 }
             }
         }
+
         stage('Publish') {
             steps {
                 script {
