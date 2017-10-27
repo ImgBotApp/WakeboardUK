@@ -10,8 +10,8 @@ pipeline {
     }
     stages {
         stage('Restore') {
+            when { expression { params.Restore == true } }
             steps {
-                when { expression { params.Restore == true } }
                 script {
                     bat """
 								dotnet restore WakeboardUK.sln
