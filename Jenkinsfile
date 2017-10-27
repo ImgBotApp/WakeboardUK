@@ -19,38 +19,37 @@ pipeline {
                 }
             }
         }
-    }
-    stage('Build') {
-        steps {
-            script {
-                if ("${params.Build}" == "true") {
-                    script {
-                        bat """
+        stage('Build') {
+            steps {
+                script {
+                    if ("${params.Build}" == "true") {
+                        script {
+                            bat """
 								dotnet build WakeboardUK.sln
 							    """
+                        }
+                    } else {
+                        echo "Skipped."
                     }
-                } else {
-                    echo "Skipped."
                 }
             }
-        }
 
-    }
-    stage('Publish') {
-        steps {
-            script {
-                if ("${params.Publish}" == "true") {
-                    script {
-                        bat """
+        }
+        stage('Publish') {
+            steps {
+                script {
+                    if ("${params.Publish}" == "true") {
+                        script {
+                            bat """
                                 cd WakeboardUK.Web
 								dotnet publish WakeboardUK.Web.csproj --framework netcoreapp1.1 -o ..\\Publish\\WakeboardUK.Web
 							    """
+                        }
+                    } else {
+                        echo "Skipped."
                     }
-                } else {
-                    echo "Skipped."
                 }
             }
         }
     }
-}
 }
