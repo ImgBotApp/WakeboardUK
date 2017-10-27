@@ -37,4 +37,10 @@
     <Content Remove="wwwroot\lib\jquery\dist\jquery.min.js" />
     <Content Remove="wwwroot\lib\jquery\dist\jquery.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Models\ApplicationUser.cs" />
+  </ItemGroup>
 </Project>
