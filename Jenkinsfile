@@ -10,7 +10,7 @@ pipeline {
     }
     stages {
         stage('Restore') {
-            when { expression { "${params.Restore}" == "true" } }
+            when { expression { params.Restore == true } }
             steps {
                 script {
                     bat """
@@ -36,8 +36,8 @@ pipeline {
             steps {
                 script {
                     bat """
-                        cd WakeboardUK.Web
-					    dotnet publish WakeboardUK.Web.csproj --framework netcoreapp1.1 -o ..\\Publish\\WakeboardUK.Web
+                        cd WakeboardUK2018
+					    dotnet publish WakeboardUK2008.csproj ..\\Publish\\WakeboardUK2018
 				        """
                 }
             }
