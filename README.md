@@ -77,5 +77,5 @@ PM> Add-Migration InitialModels
 
 Developed by [Jeremy Nevill](http://www.nevill.net).
 
-Copyright (c) 2007-2017 [Lateral Information Systems Ltd](http://www.lisys.com).
+Copyright (c) 2007-2017 [Jeremy Nevill](http://www.nevill.net).
 
