@@ -2,6 +2,8 @@
 
 ## Tools -> [Waffle Kanban](https://waffle.io/JeremyNevill/WakeboardUK)
 
+## Overview
+
 Wakeboard UK are the official committee for boat wakeboarding in the UK, and are part
 of [BWSW](http://www.britishwaterski.org.uk).
 
