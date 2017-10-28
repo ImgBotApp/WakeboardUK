@@ -9,7 +9,7 @@ This repo contains the .net core source code for the 2018 [Wakeboard UK Website]
 
 ### Tech Stack
 
-* .net Core 1.1
+* .net Core 2.0
 * Sql Server
 * Bulma.io CSS Framework
 
@@ -17,8 +17,7 @@ This repo contains the .net core source code for the 2018 [Wakeboard UK Website]
 
 ### Windows
 
-Install .net core from the official .net core website.
-
+Install .net core 2.0 from the official .net core website.
 
 #### Cloud9 Linux Virtual Dev Environment
 
@@ -59,6 +58,13 @@ dotnet run
 ASPNETCORE_URLS="http://*:80" dotnet run
 
 [Dev Website on c9](https://wakeboarduk2018-jeremynevill.c9users.io/)
+
+
+#### Migrations
+```
+PM> Add-Migration InitialModels
+```
+
 
 ***
 
