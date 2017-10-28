@@ -1,5 +1,7 @@
 # Wakeboard UK
 
+## Tools -> [Waffle Kanban](https://waffle.io/JeremyNevill/WakeboardUK)
+
 Wakeboard UK are the official committee for boat wakeboarding in the UK, and are part
 of [BWSW](http://www.britishwaterski.org.uk).
 
@@ -8,6 +10,8 @@ We work in association with the BWSW to promote wakeboarding and push the sport 
 This repo contains the .net core source code for the 2018 [Wakeboard UK Website](http://www.wakeboard.co.uk).
 
 NOTE: The 2018 website is currently in development so the production website is currently the 2017 version.
+
+
 
 ### Tech Stack
 
