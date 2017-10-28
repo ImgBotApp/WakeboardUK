@@ -1,0 +1,60 @@
+﻿@model WakeboardUK2018.Models.Competitor
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Competitor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Firstname)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Firstname)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImageUrl)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SexId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SexId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CountryId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CountryId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CompetitorId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,130 @@
+﻿@model WakeboardUK2018.Models.Competition
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Competition</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="start_date" class="control-label"></label>
+                <input asp-for="start_date" class="form-control" />
+                <span asp-validation-for="start_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="end_date" class="control-label"></label>
+                <input asp-for="end_date" class="form-control" />
+                <span asp-validation-for="end_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="short_name" class="control-label"></label>
+                <input asp-for="short_name" class="form-control" />
+                <span asp-validation-for="short_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="location_id" class="control-label"></label>
+                <input asp-for="location_id" class="form-control" />
+                <span asp-validation-for="location_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="created_at" class="control-label"></label>
+                <input asp-for="created_at" class="form-control" />
+                <span asp-validation-for="created_at" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="updated_at" class="control-label"></label>
+                <input asp-for="updated_at" class="form-control" />
+                <span asp-validation-for="updated_at" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="country_id" class="control-label"></label>
+                <input asp-for="country_id" class="form-control" />
+                <span asp-validation-for="country_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="photo_file_name" class="control-label"></label>
+                <input asp-for="photo_file_name" class="form-control" />
+                <span asp-validation-for="photo_file_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="photo_content_type" class="control-label"></label>
+                <input asp-for="photo_content_type" class="form-control" />
+                <span asp-validation-for="photo_content_type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="photo_file_size" class="control-label"></label>
+                <input asp-for="photo_file_size" class="form-control" />
+                <span asp-validation-for="photo_file_size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="location" class="control-label"></label>
+                <input asp-for="location" class="form-control" />
+                <span asp-validation-for="location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="entry" class="control-label"></label>
+                <input asp-for="entry" class="form-control" />
+                <span asp-validation-for="entry" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="sponsors" class="control-label"></label>
+                <input asp-for="sponsors" class="form-control" />
+                <span asp-validation-for="sponsors" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="schedule" class="control-label"></label>
+                <input asp-for="schedule" class="form-control" />
+                <span asp-validation-for="schedule" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="notes" class="control-label"></label>
+                <input asp-for="notes" class="form-control" />
+                <span asp-validation-for="notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="official_url" class="control-label"></label>
+                <input asp-for="official_url" class="form-control" />
+                <span asp-validation-for="official_url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="accommodation" class="control-label"></label>
+                <input asp-for="accommodation" class="form-control" />
+                <span asp-validation-for="accommodation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="published" /> @Html.DisplayNameFor(model => model.published)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

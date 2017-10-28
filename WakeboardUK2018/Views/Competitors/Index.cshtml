@@ -1,0 +1,71 @@
+﻿@model IEnumerable<WakeboardUK2018.Models.Competitor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Firstname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Surname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Url)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImageUrl)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SexId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CountryId)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SexId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountryId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CompetitorId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CompetitorId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CompetitorId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

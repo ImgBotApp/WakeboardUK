@@ -1,0 +1,149 @@
+﻿@model IEnumerable<WakeboardUK2018.Models.Competition>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.start_date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.end_date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.short_name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.location_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.created_at)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.updated_at)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.country_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.photo_file_name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.photo_content_type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.photo_file_size)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.location)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.entry)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.sponsors)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.schedule)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.notes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.official_url)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.accommodation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.published)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.start_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.end_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.short_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.location_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.created_at)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.updated_at)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.country_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photo_file_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photo_content_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photo_file_size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.entry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sponsors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.schedule)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.official_url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.accommodation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.published)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CompetitionId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CompetitionId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CompetitionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -22,5 +22,10 @@ namespace WakeboardUK2018.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
+
+        public DbSet<Download> Downloads { get; set; }
+        public DbSet<Article> Articles { get; set; }
+        public DbSet<Competitor> Competitors { get; set; }
+        public DbSet<Competition> Competitions { get; set; }
     }
 }
