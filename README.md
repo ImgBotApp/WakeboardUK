@@ -19,7 +19,7 @@ NOTE: The 2018 website is currently in development so the production website is 
 
 ### Windows
 
-Install .net core 2.0 from the official .net core website.
+Install .net core 2.0 from the [official .net core website](https://www.microsoft.com/net/download/core).
 
 #### Cloud9 Linux Virtual Dev Environment
 
@@ -51,11 +51,10 @@ ASPNETCORE_URLS="https://$IP:$PORT" dotnet run
 
 ```
 dotnet restore WakeboardUK.sln
-cd WakeboardUK.Website
+cd WakeboardUK2018
 dotnet build
 dotnet run
 ```
-
 
 ASPNETCORE_URLS="http://*:80" dotnet run
 
@@ -63,10 +62,10 @@ ASPNETCORE_URLS="http://*:80" dotnet run
 
 
 #### Migrations
+To add a new migration:
 ```
 PM> Add-Migration InitialModels
 ```
-
 
 ***
 
