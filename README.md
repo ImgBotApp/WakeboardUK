@@ -4,7 +4,7 @@
 
 ## Overview
 
-Wakeboard UK are the official committee for boat wakeboarding in the UK, and are part
+[Wakeboard UK](http://www.wakeboard.co.uk) are the official committee for boat wakeboarding in the UK, and are part
 of [BWSW](http://www.britishwaterski.org.uk).
 
 We work in association with the BWSW to promote wakeboarding and push the sport of UK Boat Wakeboarding forward.
