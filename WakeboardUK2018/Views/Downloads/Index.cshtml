@@ -3,45 +3,27 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h2>Index</h2>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Description)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Url)
-                </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Url)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.DownloadId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.DownloadId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.DownloadId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Downloads
+            </h1><p class="lead">
+                Official Wakeboard UK Downloads including rules, results and selection policies etc.
+            </p>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <h2>Downloads</h2>
+        @foreach (var item in Model)
+        {
+            <p>
+                <a href="@Html.DisplayFor(modelItem => item.Url)">@Html.DisplayFor(modelItem => item.Name)</a>
+                - <a asp-action="Edit" asp-route-id="@item.DownloadId">Edit</a>
+                - <a asp-action="Delete" asp-route-id="@item.DownloadId">Delete</a>
+		</p>
+        }
+    </div>
+</section>

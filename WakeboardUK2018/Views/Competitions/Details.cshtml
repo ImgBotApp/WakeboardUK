@@ -3,136 +3,71 @@
 @{
     ViewData["Title"] = "Details";
 }
+<section class="hero is-link">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                @Html.DisplayFor(model => model.Title)
+            </h1>
 
-<h2>Details</h2>
+        </div>
+    </div>
+</section>
+        <section class="section">
+    <div class="container">
+     <div class="subtitle is-4">
+                    @Html.DisplayFor(model => model.Description)
+                </div>
+    </div></section>
+                
+<section class="section">
+    <div class="container">
 
-<div>
-    <h4>Competition</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.start_date)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.start_date)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.end_date)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.end_date)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.short_name)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.short_name)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.location_id)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.location_id)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.created_at)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.created_at)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.updated_at)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.updated_at)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.country_id)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.country_id)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.photo_file_name)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.photo_file_name)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.photo_content_type)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.photo_content_type)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.photo_file_size)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.photo_file_size)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.location)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.location)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.entry)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.entry)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.sponsors)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.sponsors)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.schedule)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.schedule)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.notes)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.notes)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.official_url)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.official_url)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.accommodation)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.accommodation)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.published)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.published)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.CompetitionId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+        <div class="columns">
+            <div class="column is-one-half">
+
+                <a href="http://cdn.wakeboard.co.uk/competitions/photos/@Html.DisplayFor(model => model.CompetitionId)/original/@Html.DisplayFor(model => model.photo_file_name)"
+                   class="fancybox hover-box"
+                   title="@Html.DisplayFor(model => model.Title)">
+                    <img src="http://cdn.wakeboard.co.uk/competitions/photos/@Html.DisplayFor(model => model.CompetitionId)/original/@Html.DisplayFor(model => model.photo_file_name)"
+                         alt="alt" />
+                </a>
+
+            </div>
+            <div class="column is-one-half">
+               
+                <h4>Event Details</h4>
+                <dl>
+                    <dt>Start</dt>
+                    <dd>@Html.DisplayFor(model => model.start_date) </dd>
+                    <dt>End</dt>
+                    <dd>@Html.DisplayFor(model => model.end_date) </dd>
+                    <dt>Entry</dt>
+                    <dd>@Html.Raw(@Model.entry)</dd>
+                </dl>
+                <h4>Location</h4>
+                <dl>
+                    <dt>Venue</dt>
+                    <dd>@Html.Raw(@Model.location)</dd>
+                </dl>
+
+                <h4>Event Details</h4>
+
+                <h4>Notes</h4>
+                <p>
+                    @Html.Raw(@Model.notes)
+                </p>
+                <h4>Accomodation</h4>
+                <p>
+                    @Html.Raw(@Model.accommodation)
+                </p>
+                <p>
+                    <a asp-action="Edit" asp-route-id="@Model.CompetitionId">Edit</a> |
+                </p>
+                <hr />
+
+            </div>
+        </div>
+    </div>
+</section>
