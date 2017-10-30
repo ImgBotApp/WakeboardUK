@@ -1,8 +1,9 @@
 #!groovy​
-def TestMethod(){
+def TestMethod(String SolutionFile){
     bat """
-        dir
+        dir ${SolutionFile}
         """
+    echo SolutionFile
 }
 
 pipeline {
@@ -22,7 +23,7 @@ pipeline {
                     bat """
                         dotnet restore WakeboardUK.sln
 		                """
-                    TestMethod()
+                    TestMethod("WakeboardUK.sln")
                 }
             }
         }
