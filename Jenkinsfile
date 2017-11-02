@@ -45,7 +45,7 @@ pipeline {
                 script {
                     bat """
                         cd WakeboardUK2018
-					    dotnet publish ..\\Publish
+					    dotnet publish -o ..\\Publish
 				        """
                 }
             }
