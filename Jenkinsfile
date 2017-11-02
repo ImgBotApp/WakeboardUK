@@ -1,4 +1,11 @@
 #!groovy​
+def TestMethod(String SolutionFile){
+    bat """
+        dir ${SolutionFile}
+        """
+    echo SolutionFile
+}
+
 pipeline {
     agent {
         label 'win'
@@ -16,6 +23,7 @@ pipeline {
                     bat """
                         dotnet restore WakeboardUK.sln
 		                """
+                    TestMethod("WakeboardUK.sln")
                 }
             }
         }

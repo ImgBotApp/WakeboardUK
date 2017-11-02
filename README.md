@@ -1,6 +1,6 @@
 # Wakeboard UK
 
-## Tools -> [Waffle Kanban](https://waffle.io/JeremyNevill/WakeboardUK)
+## Tools -> [GitHub](https://github.com/JeremyNevill/WakeboardUK) - [Kanban](https://waffle.io/JeremyNevill/WakeboardUK) -  [Slack](https://wuk.slack.com)
 
 ## Overview
 
