@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>WakeboardUK2018</id>
+    <version>1.0.0</version>
+    <title>Wakeboard UK 2018</title>
+    <authors>Jeremy Nevill</authors>
+    <owners>Jeremy Nevill</owners>
+    <licenseUrl>https://github.com/JeremyNevill/WakeboardUK/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/JeremyNevill/WakeboardUK</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>2018 Version of the Wakeboard UK Website</description>
+    <copyright>Copyright Jeremy Nevill 2017</copyright>
+  </metadata>
+</package>

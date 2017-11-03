@@ -50,6 +50,20 @@ pipeline {
                 }
             }
         }
+
+        stage('Pack') {
+            when { expression { params.Publish == true } }
+            steps {
+                script {
+                    bat """
+                        cd WakeboardUK2018
+                        nuget pack
+                        """
+                }
+            }
+        }
+                
+
     }
 }
 
