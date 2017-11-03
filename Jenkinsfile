@@ -57,7 +57,7 @@ pipeline {
                 script {
                     bat """
                         cd WakeboardUK2018
-                        nuget pack
+                        dotnet pack
                         """
                 }
             }
