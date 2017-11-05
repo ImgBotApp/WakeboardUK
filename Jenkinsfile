@@ -9,8 +9,10 @@ def TestMethod(String SolutionFile) {
 
 pipeline {
     agent {
-        label 'win'
-        customWorkspace "ws\\${JOB_NAME.replace("%2F", "_")}"
+        node {
+            label 'win'
+            customWorkspace "ws\\${JOB_NAME.replace("%2F", "_")}"
+        }
     }
     parameters {
         booleanParam(name: 'Restore', defaultValue: true, description: 'Dotnet Restore')
