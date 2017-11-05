@@ -1,5 +1,6 @@
 #!groovy​
-def TestMethod(String SolutionFile){
+
+def TestMethod(String SolutionFile) {
     bat """
         dir ${SolutionFile}
         """
@@ -13,7 +14,7 @@ pipeline {
     parameters {
         booleanParam(name: 'Restore', defaultValue: true, description: 'Dotnet Restore')
         booleanParam(name: 'Build', defaultValue: true, description: 'Dotnet Build')
-        booleanParam(name: 'Publish', defaultValue: true, description: 'Dotnet Publish')
+        booleanParam(name: 'Pack', defaultValue: true, description: 'Dotnet Pack')
     }
     stages {
         stage('Restore') {
@@ -39,20 +40,8 @@ pipeline {
             }
         }
 
-        stage('Publish') {
-            when { expression { params.Publish == true } }
-            steps {
-                script {
-                    bat """
-                        cd WakeboardUK2018
-					    dotnet publish -o ..\\Publish
-				        """
-                }
-            }
-        }
-
         stage('Pack') {
-            when { expression { params.Publish == true } }
+            when { expression { params.Pack == true } }
             steps {
                 script {
                     bat """
@@ -62,7 +51,7 @@ pipeline {
                 }
             }
         }
-                
+
 
     }
 }
