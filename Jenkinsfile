@@ -18,6 +18,7 @@ pipeline {
         booleanParam(name: 'Restore', defaultValue: true, description: 'Dotnet Restore')
         booleanParam(name: 'Build', defaultValue: true, description: 'Dotnet Build')
         booleanParam(name: 'Pack', defaultValue: true, description: 'Dotnet Pack')
+        booleanParam(name: 'Push', defaultValue: true, description: 'Dotnet Push')
     }
     stages {
         stage('Restore') {
@@ -50,6 +51,18 @@ pipeline {
                     bat """
                         cd WakeboardUK2018
                         dotnet pack
+                        """
+                }
+            }
+        }
+
+        stage('Push') {
+            when { expression { params.Push == true } }
+            steps {
+                script {
+                    bat """
+                        cd WakeboardUK2018
+                        nuget push WakeboardUK2018.1.0.0.nupkg $wakeboarduk_myget_key -Source https://www.myget.org/F/wakeboarduk/api/v2/package                        
                         """
                 }
             }
