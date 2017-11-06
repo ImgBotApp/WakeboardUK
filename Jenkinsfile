@@ -18,6 +18,7 @@ pipeline {
         booleanParam(name: 'Restore', defaultValue: true, description: 'Dotnet Restore')
         booleanParam(name: 'Build', defaultValue: true, description: 'Dotnet Build')
         booleanParam(name: 'Pack', defaultValue: true, description: 'Dotnet Pack')
+        booleanParam(name: 'Publish', defaultValue: true, description: 'Dotnet Publish')
         booleanParam(name: 'Push', defaultValue: true, description: 'Dotnet Push')
     }
     stages {
@@ -40,6 +41,18 @@ pipeline {
                     bat """
                         dotnet build WakeboardUK.sln
 					    """
+                }
+            }
+        }
+
+        stage('Publish') {
+            when { expression { params.Publish == true } }
+            steps {
+                script {
+                    bat """
+                        cd WakeboardUK2018
+                        dotnet publish -o publish
+                        """
                 }
             }
         }
