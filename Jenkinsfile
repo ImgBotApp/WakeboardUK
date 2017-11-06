@@ -17,9 +17,9 @@ pipeline {
     parameters {
         booleanParam(name: 'Restore', defaultValue: true, description: 'Dotnet Restore')
         booleanParam(name: 'Build', defaultValue: true, description: 'Dotnet Build')
-        booleanParam(name: 'Pack', defaultValue: true, description: 'Dotnet Pack')
         booleanParam(name: 'Publish', defaultValue: true, description: 'Dotnet Publish')
-        booleanParam(name: 'Push', defaultValue: true, description: 'Dotnet Push')
+        booleanParam(name: 'Pack', defaultValue: true, description: 'Dotnet Pack')
+        booleanParam(name: 'Push', defaultValue: false, description: 'Dotnet Push')
     }
     stages {
         stage('Restore') {
@@ -51,7 +51,7 @@ pipeline {
                 script {
                     bat """
                         cd WakeboardUK2018
-                        dotnet publish -o publish
+                        dotnet publish  --framework netcoreapp2.0 -o publish
                         """
                 }
             }
@@ -63,7 +63,8 @@ pipeline {
                 script {
                     bat """
                         cd WakeboardUK2018
-                        dotnet pack
+                        copy WakeboardUK2018.nuspec publish/
+                        dotnet pack WakeboardUK2018.nuspec
                         """
                 }
             }
