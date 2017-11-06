@@ -59,11 +59,13 @@ pipeline {
         stage('Push') {
             when { expression { params.Push == true } }
             steps {
-                script {
-                    bat """
+                withCredentials([string(credentialsId: 'wakeboarduk_myget_key', variable: 'nugetkey')]) {
+                    script {
+                        bat """
                         cd WakeboardUK2018
-                        nuget push WakeboardUK2018.nupkg %wakeboarduk_myget_key% -Source https://www.myget.org/F/wakeboarduk/api/v2/package                        
+                        nuget push WakeboardUK2018.nupkg $nugetkey -Source https://www.myget.org/F/wakeboarduk/api/v2/package                        
                         """
+                    }
                 }
             }
         }
