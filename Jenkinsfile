@@ -63,8 +63,7 @@ pipeline {
                 script {
                     bat """
                         cd WakeboardUK2018
-                        copy WakeboardUK2018.nuspec publish/
-                        dotnet pack WakeboardUK2018.nuspec
+                        octo pack --id WakeboardUK2018 --version 1.0.0 --basePath publish
                         """
                 }
             }
