@@ -23,6 +23,13 @@ pipeline {
         booleanParam(name: 'Push', defaultValue: true, description: 'Dotnet Push')
     }
     stages {
+
+        stage('Clean') {
+           steps { 
+               deleteDir()
+           }
+        }
+
         stage('Restore') {
             when { expression { params.Restore == true } }
             steps {
