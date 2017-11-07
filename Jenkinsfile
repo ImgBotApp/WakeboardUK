@@ -20,7 +20,7 @@ pipeline {
         booleanParam(name: 'Build', defaultValue: true, description: 'Dotnet Build')
         booleanParam(name: 'Publish', defaultValue: true, description: 'Dotnet Publish')
         booleanParam(name: 'Pack', defaultValue: true, description: 'Dotnet Pack')
-        booleanParam(name: 'Push', defaultValue: false, description: 'Dotnet Push')
+        booleanParam(name: 'Push', defaultValue: true, description: 'Dotnet Push')
     }
     stages {
         stage('Restore') {
