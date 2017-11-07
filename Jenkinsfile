@@ -21,14 +21,9 @@ pipeline {
         booleanParam(name: 'Publish', defaultValue: true, description: 'Dotnet Publish')
         booleanParam(name: 'Pack', defaultValue: true, description: 'Dotnet Pack')
         booleanParam(name: 'Push', defaultValue: true, description: 'Dotnet Push')
+        booleanParam(name: 'Clean', defaultValue: true, description: 'Clean Workspace')        
     }
     stages {
-
-        stage('Clean') {
-           steps { 
-               deleteDir()
-           }
-        }
 
         stage('Restore') {
             when { expression { params.Restore == true } }
@@ -92,6 +87,12 @@ pipeline {
             }
         }
 
+        stage('Clean') {
+            when { expression { params.Clean == true } }
+            steps {
+                deleteDir()
+            }
+        }
 
     }
 }
