@@ -15,7 +15,7 @@ pipeline {
         }
     }
     parameters {
-        string(name: 'PackageVer', defaultValue: '1.1.${env.BUILD_ID}', description: 'Package version number')
+        string(name: 'VerStub', defaultValue: '1.1.', description: 'Package version stub')
         booleanParam(name: 'Restore', defaultValue: true, description: 'Dotnet Restore')
         booleanParam(name: 'Build', defaultValue: true, description: 'Dotnet Build')
         booleanParam(name: 'Publish', defaultValue: true, description: 'Dotnet Publish')
@@ -64,7 +64,7 @@ pipeline {
                 script {
                     bat """
                         cd WakeboardUK2018
-                        octo pack --id WakeboardUK2018 --version 1.0.0 --basePath publish
+                        octo pack --id WakeboardUK2018 --version ${params.VerStub}${env.BUILD_ID} --basePath publish
                         """
                 }
             }
@@ -78,7 +78,7 @@ pipeline {
                         bat """
                         cd WakeboardUK2018
                         dir
-                        nuget push WakeboardUK2018.1.0.0.nupkg $nugetkey -Source https://www.myget.org/F/wakeboarduk/api/v2/package  
+                        nuget push WakeboardUK2018.${params.VerStub}${env.BUILD_ID}.nupkg $nugetkey -Source https://www.myget.org/F/wakeboarduk/api/v2/package  
                         """
                     }
                 }
