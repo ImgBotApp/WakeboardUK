@@ -15,6 +15,7 @@ pipeline {
         }
     }
     parameters {
+        string(name: 'PackageVer', defaultValue: '1.1.${env.BUILD_ID}', description: 'Package version number')
         booleanParam(name: 'Restore', defaultValue: true, description: 'Dotnet Restore')
         booleanParam(name: 'Build', defaultValue: true, description: 'Dotnet Build')
         booleanParam(name: 'Publish', defaultValue: true, description: 'Dotnet Publish')
