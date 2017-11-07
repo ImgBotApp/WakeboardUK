@@ -75,8 +75,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'wakeboarduk_myget_key', variable: 'nugetkey')]) {
                     script {
                         bat """
-                        cd WakeboardUK2018
-                        nuget push WakeboardUK2018.nupkg $nugetkey -Source https://www.myget.org/F/wakeboarduk/api/v2/package                        
+                        nuget push WakeboardUK2018.1.0.0.nupkg $nugetkey -Source https://www.myget.org/F/wakeboarduk/api/v2/package  
                         """
                     }
                 }
