@@ -76,6 +76,7 @@ pipeline {
                     script {
                         bat """
                         cd WakeboardUK2018
+                        dir
                         nuget push WakeboardUK2018.1.0.0.nupkg $nugetkey -Source https://www.myget.org/F/wakeboarduk/api/v2/package  
                         """
                     }
