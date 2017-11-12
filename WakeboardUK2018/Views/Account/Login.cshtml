@@ -24,31 +24,40 @@
             <div class="column is-one-half">
 
                 <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
-                    <h4>Use a local account to log in.</h4>
-                    <hr/>
                     <div asp-validation-summary="All" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="Email"></label>
-                        <input asp-for="Email" class="form-control"/>
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Password"></label>
-                        <input asp-for="Password" class="form-control"/>
-                        <span asp-validation-for="Password" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <label asp-for="RememberMe">
-                                <input asp-for="RememberMe"/>
-                                @Html.DisplayNameFor(m => m.RememberMe)
-                            </label>
+
+                    <div class="field">
+                        <label asp-for="Email" class="label"></label>
+                        <div class="control">
+                            <input asp-for="Email" class="form-control"/>
+                            <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-default">Log in</button>
+
+                    <div class="field">
+                        <label asp-for="Password" class="label"></label>
+                        <div class="control">
+                            <input asp-for="Password" class="form-control"/>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
                     </div>
-                    <div class="form-group">
+
+                    <div class="field">
+                        <div class="checkbox">
+                            <div class="control">
+                                <input asp-for="RememberMe"/>
+                                @Html.DisplayNameFor(m => m.RememberMe)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <button type="submit" class="button is-link">Log in</button>
+                        </div>
+                    </div>
+
+                    <div class="field">
                         <p>
                             <a asp-action="ForgotPassword">Forgot your password?</a>
                         </p>
