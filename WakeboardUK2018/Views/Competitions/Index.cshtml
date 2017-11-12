@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<WakeboardUK2018.Models.Competition>
-
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
 @{
     ViewData["Title"] = "Index";
 }
@@ -8,7 +9,10 @@
     <div class="hero-body">
         <div class="container">
             <h1 class="title">
-                Competitions
+                Competitions @if (User.Identity.IsAuthenticated)
+                             {
+                                 <a asp-action="Create">[+]</a>
+                             }
             </h1>
             <p class="lead">
                 Officially sanctioned Wakeboard UK competitions and non-sanctioned events in the UK
@@ -20,14 +24,13 @@
 
 <section class="section">
     <div class="container">
-     
         @foreach (var item in Model)
         {
             <div class="columns">
                 <div class="column is-one-third">
                     <a asp-action="Details" asp-route-id="@item.CompetitionId" class="hover-box">
                         <img src="http://cdn.wakeboard.co.uk/competitions/photos/@Html.DisplayFor(modelItem => item.CompetitionId)/original/@Html.DisplayFor(modelItem => item.photo_file_name)"
-                             alt="@Html.DisplayFor(modelItem => item.Title)" />
+                             alt="@Html.DisplayFor(modelItem => item.Title)"/>
                     </a>
                 </div>
                 <div class="column is-two-thirds">
@@ -35,15 +38,19 @@
                         <h2 class="title is-4">@Html.DisplayFor(modelItem => item.Title) </h2>
                     </a>
                     <em class="date">@Html.DisplayFor(modelItem => item.start_date)</em>
-                    @Html.DisplayFor(modelItem => item.Description)
-                    <a asp-action="Details" asp-route-id="@item.CompetitionId" class="read-more">Read More</a>
-                         <p>
-                            <a asp-action="Edit" asp-route-id="@item.CompetitionId">Edit</a> |
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <p>
+                            <a asp-action="Edit" asp-route-id="@item.CompetitionId">Edit</a>
+                            -
                             <a asp-action="Delete" asp-route-id="@item.CompetitionId">Delete</a>
                         </p>
-                 </div>
+                    }
+                    @Html.DisplayFor(modelItem => item.Description)
+                    <a asp-action="Details" asp-route-id="@item.CompetitionId" class="read-more">Read More</a>
+
+                </div>
             </div>
         }
     </div>
 </section>
- 

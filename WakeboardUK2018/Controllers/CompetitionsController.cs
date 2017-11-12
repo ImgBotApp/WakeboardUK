@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -44,6 +45,7 @@ namespace WakeboardUK2018.Controllers
         }
 
         // GET: Competitions/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -52,9 +54,13 @@ namespace WakeboardUK2018.Controllers
         // POST: Competitions/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CompetitionId,Title,Description,start_date,end_date,short_name,location_id,created_at,updated_at,country_id,photo_file_name,photo_content_type,photo_file_size,location,entry,sponsors,schedule,notes,official_url,accommodation,published")] Competition competition)
+        public async Task<IActionResult> Create(
+            [Bind(
+                "CompetitionId,Title,Description,start_date,end_date,short_name,location_id,created_at,updated_at,country_id,photo_file_name,photo_content_type,photo_file_size,location,entry,sponsors,schedule,notes,official_url,accommodation,published")]
+            Competition competition)
         {
             if (ModelState.IsValid)
             {
@@ -66,6 +72,7 @@ namespace WakeboardUK2018.Controllers
         }
 
         // GET: Competitions/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -84,9 +91,13 @@ namespace WakeboardUK2018.Controllers
         // POST: Competitions/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CompetitionId,Title,Description,start_date,end_date,short_name,location_id,created_at,updated_at,country_id,photo_file_name,photo_content_type,photo_file_size,location,entry,sponsors,schedule,notes,official_url,accommodation,published")] Competition competition)
+        public async Task<IActionResult> Edit(int id,
+            [Bind(
+                "CompetitionId,Title,Description,start_date,end_date,short_name,location_id,created_at,updated_at,country_id,photo_file_name,photo_content_type,photo_file_size,location,entry,sponsors,schedule,notes,official_url,accommodation,published")]
+            Competition competition)
         {
             if (id != competition.CompetitionId)
             {
@@ -117,6 +128,7 @@ namespace WakeboardUK2018.Controllers
         }
 
         // GET: Competitions/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,6 +147,7 @@ namespace WakeboardUK2018.Controllers
         }
 
         // POST: Competitions/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
