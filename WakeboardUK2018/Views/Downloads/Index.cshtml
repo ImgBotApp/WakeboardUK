@@ -20,18 +20,17 @@
 </section>
 <section class="section">
     <div class="container">
-        <h2>Downloads</h2>
         @foreach (var item in Model)
         {
-            <p>
+            <h2 class="subtitle">
                 <a href="@Html.DisplayFor(modelItem => item.Url)">@Html.DisplayFor(modelItem => item.Name)</a>
+                - @Html.DisplayFor(modelItem => item.Description)
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <a asp-action="Edit" asp-route-id="@item.DownloadId">Edit</a>
-
-                    <a asp-action="Delete" asp-route-id="@item.DownloadId">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.DownloadId">[Edit]</a>
+                    <a asp-action="Delete" asp-route-id="@item.DownloadId">[Delete]</a>
                 }
-            </p>
+            </h2>
         }
     </div>
 </section>
