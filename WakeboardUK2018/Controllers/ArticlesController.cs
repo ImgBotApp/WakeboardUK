@@ -24,8 +24,10 @@ namespace WakeboardUK2018.Controllers
         // GET: Articles
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Articles.ToListAsync());
+            var articles = await _context.Articles.OrderByDescending(s => s.CreateDate).ToListAsync();
+            return View(articles);
         }
+
 
         // GET: Articles/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -58,7 +60,8 @@ namespace WakeboardUK2018.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ArticleId,Title,Description,Content,CreateDate,ImageUrl")] Article article)
+        public async Task<IActionResult> Create(
+            [Bind("ArticleId,Title,Description,Content,CreateDate,ImageUrl")] Article article)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +95,8 @@ namespace WakeboardUK2018.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ArticleId,Title,Description,Content,CreateDate,ImageUrl")] Article article)
+        public async Task<IActionResult> Edit(int id,
+            [Bind("ArticleId,Title,Description,Content,CreateDate,ImageUrl")] Article article)
         {
             if (id != article.ArticleId)
             {
